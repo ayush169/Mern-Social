@@ -18,11 +18,13 @@ export default function Profile() {
         `http://localhost:8800/api/users?username=${username}`
       );
       setUser(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     };
 
     fetchUser();
   }, [username]);
+
+  console.log(user);
 
   return (
     <>
@@ -34,12 +36,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture || PF + "person/noCover.png"}
+                src={PF + user.coverPicture || PF + "person/noCover.png"}
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture || PF + "person/noAvatar.png"}
+                src={PF + user.profilePicture || PF + "person/noAvatar.png"}
                 alt=""
               />
             </div>
